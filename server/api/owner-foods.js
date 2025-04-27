@@ -1,0 +1,24 @@
+import mysql from 'mysql2/promise';
+
+const db = mysql.createPool({
+  host: 'bp2juxysn0nszxvmkkzj-mysql.services.clever-cloud.com',
+  user: 'udflccbdblfustx7',
+  password: 'qgnCvYDdKjXJIfaLe8hL',
+  database: 'bp2juxysn0nszxvmkkzj',
+});
+
+export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    const [rows] = await db.query('SELECT * FROM foods');
+    return res.status(200).json(rows);
+  }
+  if (req.method === 'POST') {
+    const { name, price, quantity } = req.body;
+    if (!name || !price || !Number.isFinite(quantity) || quantity < 0) {
+      return res.status(400).json({ message: 'Name, price, and quantity required' });
+    }
+    await db.query('INSERT INTO foods (name, price, available, quantity) VALUES (?, ?, ?, ?)', [name, price, quantity > 0, quantity]);
+    return res.status(200).json({ message: 'Food added successfully' });
+  }
+  res.status(405).json({ message: 'Method not allowed' });
+}
