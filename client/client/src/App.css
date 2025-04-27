@@ -1,0 +1,107 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Glassmorphism styles for modern UI */
+body {
+  background: linear-gradient(135deg, #c3cfe2 0%, #e2eafc 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.glass-card, .glass-navbar, .glass-table {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-navbar {
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.glass-card {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+.glass-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+}
+
+.glass-table {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-glass {
+  background: rgba(255,255,255,0.35);
+  color: #222;
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(2px);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-glass:hover {
+  background: rgba(255,255,255,0.6);
+  color: #007bff;
+}
+
+input.form-control, select.form-select {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(2px);
+}
+
+.alert {
+  border-radius: 12px;
+  backdrop-filter: blur(2px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .glass-card, .glass-table, .glass-navbar {
+    padding: 1rem;
+  }
+}
