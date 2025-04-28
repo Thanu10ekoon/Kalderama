@@ -8,7 +8,15 @@ const db = mysql.createPool({
 });
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://kalderama.vercel.app');
+  const allowedOrigins = [
+    'https://kalderama.vercel.app',
+    'https://kalderama-9akqkghda-thanujaya-tennekoons-projects-879a74da.vercel.app',
+    'http://localhost:5173'
+  ];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') {
